@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three.js 3D Editor – Senior Assessment</title>
+<style>
+  :root { --bg:#111118; --panel:#222d; --text:#fff; --accent:#4a9eff; }
+  .light { --bg:#f8f9fa; --panel:#ffffffee; --text:#000; --accent:#0066ff; }
+  body { margin:0; overflow:hidden; font-family:system-ui,sans-serif; background:var(--bg); color:var(--text); }
+  #panel {
+    position:absolute; top:15px; left:15px; background:var(--panel); padding:20px; border-radius:16px;
+    width:280px; z-index:100; backdrop-filter:blur(12px); box-shadow:0 12px 40px rgba(0,0,0,0.5);
+  }
+  button, select, input[type=color] { width:100%; padding:12px; margin:8px 0; border:none; border-radius:10px; font-size:15px; }
+  button { background:var(--accent); color:white; cursor:pointer; font-weight:600; }
+  button:hover { filter:brightness(1.1); }
+  label { display:block; margin:16px 0 6px; font-weight:600; }
+  #info {
+    position:absolute; top:15px; right:15px; background:var(--panel); padding:18px; border-radius:12px;
+    min-width:280px; backdrop-filter:blur(12px); box-shadow:0 12px 40px rgba(0,0,0,0.5);
+  }
+  .btn-group { display:flex; gap:10px; }
+  .btn-group button { flex:1; }
+</style>
+</head>
+<body>
+
+<div id="panel">
+  <label>Add Shape</label>
+  <select id="shapeSelect">
+    <option value="box">Box</option>
+    <option value="sphere">Sphere</option>
+    <option value="cylinder">Cylinder</option>
+  </select>
+
+  <label>Color</label>
+  <input type="color" id="colorPicker" value="#ff6b6b">
+
+  <button id="addBtn">Add Shape</button>
+
+  <label>Transform Mode</label>
+  <div class="btn-group">
+    <button data-mode="translate">Move</button>
+    <button data-mode="rotate">Rotate</button>
+    <button data-mode="scale">Scale</button>
+  </div>
+
+  <label>Camera</label>
+  <div class="btn-group">
+    <button id="zoomInBtn">Zoom In</button>
+    <button id="zoomOutBtn">Zoom Out</button>
+  </div>
+
+  <hr style="border-color:#555;margin:20px 0">
+
+  <button id="deleteBtn">Delete Selected</button>
+  <div class="btn-group">
+    <button id="undoBtn">Undo</button>
+    <button id="redoBtn">Redo</button>
+  </div>
+
+  <button id="themeBtn">Light / Dark</button>
+  <button id="saveBtn">Save Scene</button>
+  <button id="loadBtn">Load Scene</button>
+  <input type="file" id="fileInput" style="display:none" accept=".json">
+</div>
+
+<div id="info">Click an object to select it</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>

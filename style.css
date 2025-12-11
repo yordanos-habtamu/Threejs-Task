@@ -1,0 +1,102 @@
+:root {
+    --bg: #111118;
+    --panel: #222d;
+    --text: #fff;
+    --accent: #4a9eff;
+}
+
+.light {
+    --bg: #f8f9fa;
+    --panel: #ffffffee;
+    --text: #000;
+    --accent: #0066ff;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    user-select: none;
+    /* Prevent text selection while dragging */
+}
+
+#panel {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--panel);
+    padding: 20px;
+    border-radius: 16px;
+    width: 280px;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s;
+}
+
+button,
+select,
+input[type=color] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: filter 0.2s;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+label {
+    display: block;
+    margin: 16px 0 6px;
+    font-weight: 600;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+#info {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--panel);
+    padding: 18px;
+    border-radius: 12px;
+    min-width: 280px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group button {
+    flex: 1;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #555;
+    margin: 20px 0;
+}
